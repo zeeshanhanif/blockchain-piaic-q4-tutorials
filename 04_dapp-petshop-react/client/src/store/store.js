@@ -1,9 +1,13 @@
 
-import { configureStore } from '@reduxjs/toolkit'
-import { adopReducer } from './adoptSlice'
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
+import { adoptReducer } from './adoptSlice'
 
 export const store = configureStore({
     reducer:  {
-        adoptReducer : adopReducer
-    }
+        adoptReducer : adoptReducer
+    },
+    middleware: getDefaultMiddleware({
+        serializableCheck: false,
+        immutableCheck: false,
+    })
 })
